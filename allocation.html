@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fund Allocation - ReliefTrack</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="alloc">
+
+<!-- ========== TOP BAR ========== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="logo" href="index.html">Relief<span>Track</span></a>
+    <nav id="nav">
+      <a href="index.html">Overview</a>
+      <a href="allocation.html" class="active">Fund Allocation</a>
+      <a href="progress.html">Relief Progress</a>
+      <a href="transactions.html">Transactions</a>
+      <a href="impact.html">Impact</a>
+    </nav>
+    <div class="top-buttons">
+      <button class="small-button" id="theme-button" type="button" title="Dark / light mode" aria-label="Dark / light mode"><svg class="theme-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      <button class="button" type="button" onclick="window.print()">Download Report</button>
+      <button class="small-button" id="menu-button" type="button" title="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- ========== PAGE HEADING ========== -->
+  <section class="hero">
+    <div>
+      <div class="eyebrow"><a href="index.html">DASHBOARD</a> / FUND ALLOCATION</div>
+      <h1>How disaster funds are allocated.</h1>
+      <p>See how the 2025-26 State Disaster Response Fund allocation (Centre plus State share) is split across states, and how much has been released.</p>
+    </div>
+    <a class="button" href="index.html">← Back to Dashboard</a>
+  </section>
+
+  <!-- ========== DONUT + FUNDS FLOW ========== -->
+  <div class="grid grid-2">
+    <div class="box" id="alloc-donut">
+      <h2>Allocation by State</h2>
+      <div class="donut-area">
+        <div class="donut donut-big" id="donut">
+          <div class="donut-hole"><b id="donut-total"></b><small>SDRF 2025-26</small></div>
+        </div>
+        <div class="share-list" id="share-list"></div>
+      </div>
+    </div>
+
+    <div class="box" id="alloc-flow">
+      <h2>Funds Flow 2025-26</h2>
+      <div class="flow">
+        <div><small>SDRF allocation</small><b id="flow-alloc"></b></div>
+        <div><small>Centre’s share released</small><b id="flow-sdrf"></b></div>
+        <div><small>NDRF released</small><b id="flow-ndrf"></b></div>
+      </div>
+      <p class="note">SDRF allocation includes the Centre’s and the State’s share. Central releases can include arrears from earlier years, and NDRF is a separate fund for severe calamities, so the figures are not a simple split of one pot.</p>
+    </div>
+  </div>
+
+  <!-- ========== TOP FIVE STATES (boxes are made by script.js) ========== -->
+  <h2 class="section-title">Top five states by allocation</h2>
+  <div class="grid grid-2" id="state-cards"></div>
+
+  <p class="note source-note">Source: Ministry of Home Affairs, Statement of state-wise SDRF/NDRF allocation and releases and damage reports (Annexures I and II, PIB, 2026). Figures in ₹ crore; 2025-26 damages are provisional. State rows add up to ₹23,983.20 Cr (Centre’s SDRF release) and ₹5,809.33 Cr (NDRF) for 2025-26; the annexure’s printed totals are ₹24,193.20 Cr and ₹5,909.26 Cr, so a small part is not itemised by state.</p>
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="wrap">
+    <span><b>ReliefTrack</b> | India disaster fund dashboard built on public MHA SDRF/NDRF data</span>
+    <span>Source: Ministry of Home Affairs · PIB</span>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

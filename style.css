@@ -1,0 +1,911 @@
+/* =====================================================================
+   ReliefTrack - style.css
+
+   HOW TO EDIT THIS FILE
+   Part 1  COLOURS      change any colour of the whole site
+   Part 2  SIZES        padding, gaps, font size, rounded corners
+   Part 3  ONE BOX      change a single box on a single page
+   Part 4  DARK MODE    colours used when the moon button is pressed
+   Part 5  LAYOUT       how things are placed (edit only if you want to)
+   Part 6  MODERN LOOK  shadows, hover effects, scroll animations (no colours here)
+   ===================================================================== */
+
+
+/* =====================================================================
+   PART 1 - COLOURS
+   ===================================================================== */
+:root {
+
+  /* ----- whole page ----- */
+  --page-bg: #eef3fa;          /* background behind everything */
+  --text: #0f2a47;             /* normal text */
+  --muted: #5f6f84;            /* small grey text */
+  --link: #2a5fa8;             /* links, first column of tables */
+  --line: #e0e7f0;             /* thin lines between rows */
+
+  /* ----- boxes (cards) ----- */
+  --box-bg: #ffffff;           /* background of every box */
+  --box-border: #dce5f0;       /* thin border around every box */
+  --table-head-bg: #eef3f9;    /* top row of tables */
+  --bar-track: #e6ecf4;        /* grey part of progress bars */
+
+  /* ----- top bar ----- */
+  --topbar-bg: #ffffff;        /* top bar background */
+  --logo-text: #0b2447;        /* "Relief" part of the logo */
+  --logo-accent: #0f9d8a;      /* "Track" part of the logo */
+  --nav-link: #46607f;         /* menu links */
+  --nav-active-bg: #e3eefc;    /* menu link of the page you are on */
+  --nav-active-text: #0b2447;
+
+  /* ----- buttons ----- */
+  --button-bg: #1769d6;        /* Download Report / Back button */
+  --button-text: #ffffff;
+  --button-hover-bg: #0f56b3;
+  --filter-bg: #ffffff;        /* All / SDRF / NDRF filter buttons */
+  --filter-active-bg: #1769d6; /* the filter that is selected */
+  --filter-active-text: #ffffff;
+
+  /* ----- footer ----- */
+  --footer-bg: #0b2447;
+  --footer-text: #cfdcf0;
+
+  /* ----- round icon backgrounds (the blue / teal / orange circles) ----- */
+  --icon-blue-bg: #e5eefc;
+  --icon-teal-bg: #dff5f0;
+  --icon-orange-bg: #fde7e1;
+
+  /* ----- chart colours: donut slices, bars and dots ----- */
+  --chart-1: #1769d6;
+  --chart-2: #0f9d8a;
+  --chart-3: #f46a4e;
+  --chart-4: #f6bf45;
+  --chart-5: #7a5af8;
+  --chart-6: #98a2b3;          /* "Other states" */
+
+  /* ----- small coloured labels ----- */
+  --ok-bg: #dff5ec;            /* green "MHA data" label */
+  --ok-text: #0f7d55;
+  --sdrf-bg: #dff5f0;          /* "SDRF" label in the transactions table */
+  --sdrf-text: #0b8272;
+  --ndrf-bg: #e5eefc;          /* "NDRF" label in the transactions table */
+  --ndrf-text: #1769d6;
+}
+
+
+/* =====================================================================
+   PART 2 - SIZES
+   ===================================================================== */
+:root {
+  --font: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+  --font-size: 14px;           /* normal text size */
+  --page-width: 1200px;        /* widest the content can get */
+  --box-padding: 24px;         /* space inside every box */
+  --box-radius: 16px;           /* rounded corners of boxes */
+  --gap: 20px;                 /* space between boxes */
+}
+
+
+/* =====================================================================
+   PART 3 - ONE BOX ONLY
+   Every box has its own id. To change just one box, edit its line here.
+   (You can add more properties, e.g.  background: #fff3e0;  border-color: red; )
+   ===================================================================== */
+
+/* ----- Overview page (index.html) ----- */
+#home-kpi-1   { background: var(--box-bg); }   /* SDRF Allocation number box */
+#home-kpi-2   { background: var(--box-bg); }   /* Centre's SDRF Released number box */
+#home-kpi-3   { background: var(--box-bg); }   /* NDRF Released number box */
+#home-kpi-4   { background: var(--box-bg); }   /* Lives Lost number box */
+#home-donut   { background: var(--box-bg); }   /* SDRF Allocation donut box */
+#home-ndrf    { background: var(--box-bg); }   /* Largest NDRF Releases box */
+#home-table   { background: var(--box-bg); }   /* Largest Releases table box */
+#home-damage  { background: var(--box-bg); }   /* Reported Disaster Damage box */
+
+/* ----- Fund Allocation page (allocation.html) ----- */
+#alloc-donut  { background: var(--box-bg); }   /* Allocation by State box */
+#alloc-flow   { background: var(--box-bg); }   /* Funds Flow box */
+/* the five state boxes are made by script.js, they all use .state-card in Part 5 */
+
+/* ----- Relief Progress page (progress.html) ----- */
+#progress-kpi-1 { background: var(--box-bg); } /* 2023-24 number box */
+#progress-kpi-2 { background: var(--box-bg); } /* 2024-25 number box */
+#progress-kpi-3 { background: var(--box-bg); } /* 2025-26 number box */
+/* the six state boxes are made by script.js, they all use .recipient-card in Part 5 */
+
+/* ----- Transactions page (transactions.html) ----- */
+#tx-kpi-1     { background: var(--box-bg); }   /* SDRF released (3 yrs) box */
+#tx-kpi-2     { background: var(--box-bg); }   /* NDRF released (3 yrs) box */
+#tx-kpi-3     { background: var(--box-bg); }   /* Release records box */
+#tx-kpi-4     { background: var(--box-bg); }   /* States covered box */
+#tx-table     { background: var(--box-bg); }   /* search + table box */
+
+/* ----- Impact page (impact.html) ----- */
+#impact-kpi-1 { background: var(--box-bg); }   /* States / UTs Reporting box */
+#impact-kpi-2 { background: var(--box-bg); }   /* Lives Lost box */
+#impact-kpi-3 { background: var(--box-bg); }   /* Houses/Huts Damaged box */
+#impact-kpi-4 { background: var(--box-bg); }   /* Cattle Lost box */
+#impact-years { background: var(--box-bg); }   /* National damage by year box */
+#impact-top   { background: var(--box-bg); }   /* Houses damaged, top 12 states box */
+
+
+/* =====================================================================
+   PART 4 - DARK MODE
+   Only colours here. Same names as Part 1, just darker values.
+   ===================================================================== */
+[data-theme="dark"] {
+  --page-bg: #08111f;
+  --text: #e6eefb;
+  --muted: #9bb0cd;
+  --link: #7db4ff;
+  --line: #243653;
+
+  --box-bg: #14233c;
+  --box-border: #243653;
+  --table-head-bg: #1b2e4d;
+  --bar-track: #243653;
+
+  --topbar-bg: #0e1a30;
+  --logo-text: #eaf2ff;
+  --logo-accent: #3fd6c0;
+  --nav-link: #9fb4cf;
+  --nav-active-bg: #1f3659;
+  --nav-active-text: #ffffff;
+
+  --filter-bg: #14233c;
+
+  --footer-bg: #040a14;
+
+  --icon-blue-bg: #1b3358;
+  --icon-teal-bg: #12423f;
+  --icon-orange-bg: #4a2a27;
+
+  --ok-bg: #12402f;
+  --ok-text: #4fe0a6;
+  --sdrf-bg: #12423f;
+  --sdrf-text: #3fd6c0;
+  --ndrf-bg: #1b3358;
+  --ndrf-text: #7db4ff;
+}
+
+
+/* =====================================================================
+   PART 5 - LAYOUT
+   You normally don't need to touch anything below this line.
+   ===================================================================== */
+
+/* ----- basics ----- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: var(--font-size);
+}
+
+a { color: var(--link); }
+
+h1, h2, p { margin-top: 0; }
+
+.wrap {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+
+/* ----- top bar ----- */
+.topbar {
+  background: var(--topbar-bg);
+  border-bottom: 1px solid var(--box-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topbar-inner {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--logo-text);
+  text-decoration: none;
+}
+.logo span { color: var(--logo-accent); }
+
+nav { display: flex; gap: 4px; }
+
+nav a {
+  color: var(--nav-link);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+}
+nav a:hover { background: var(--nav-active-bg); }
+nav a.active {
+  background: var(--nav-active-bg);
+  color: var(--nav-active-text);
+  font-weight: bold;
+}
+
+.top-buttons { display: flex; gap: 8px; align-items: center; }
+
+.button {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: 0;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+}
+.button:hover { background: var(--button-hover-bg); }
+
+.small-button {                 /* moon button and menu button */
+  background: var(--box-bg);
+  color: var(--text);
+  border: 1px solid var(--box-border);
+  border-radius: 6px;
+  width: 38px;
+  height: 38px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#menu-button { display: none; }
+
+
+/* ----- heading part at the top of each page ----- */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 28px 0 20px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+  color: var(--link);
+}
+.eyebrow a { text-decoration: none; }
+
+.hero h1 {
+  font-size: 34px;
+  margin: 8px 0;
+  max-width: 600px;
+}
+.hero p {
+  color: var(--muted);
+  max-width: 480px;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.tagline {
+  border-left: 3px solid var(--logo-accent);
+  padding-left: 20px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+
+/* ----- grids (rows of boxes) ----- */
+.grid {
+  display: grid;
+  gap: var(--gap);
+  margin-bottom: var(--gap);
+}
+.grid-4    { grid-template-columns: repeat(4, 1fr); }
+.grid-3    { grid-template-columns: repeat(3, 1fr); }
+.grid-2    { grid-template-columns: 1fr 1fr; }
+.grid-wide { grid-template-columns: 1.45fr 1fr; }
+
+
+/* ----- boxes ----- */
+.box {
+  background: var(--box-bg);
+  border: 1px solid var(--box-border);
+  border-radius: var(--box-radius);
+  padding: var(--box-padding);
+}
+
+.box h2 {
+  font-size: 17px;
+  margin: 0 0 14px;
+}
+
+.box-head {                    /* title on the left, "View details" on the right */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.box-head h2 { margin: 0; }
+.box-head a { font-size: 12px; font-weight: bold; text-decoration: none; }
+
+.section-title { font-size: 19px; margin: 24px 0 14px; }
+
+.note {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 13px;
+}
+.source-note { font-size: 12px; margin-top: 8px; }
+
+
+/* ----- number boxes (KPI) ----- */
+.kpi {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.kpi-label { font-weight: bold; }
+.kpi-value { font-size: 22px; white-space: nowrap; font-weight: bold; margin: 4px 0 6px; }
+.kpi-note  { color: var(--muted); font-size: 12px; }
+
+.icon {                        /* round icon circle */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex: none;
+}
+.icon-blue   { background: var(--icon-blue-bg); }
+.icon-teal   { background: var(--icon-teal-bg); }
+.icon-orange { background: var(--icon-orange-bg); }
+
+
+/* ----- chart colours (used for dots and bars) ----- */
+.color-1 { background: var(--chart-1); }
+.color-2 { background: var(--chart-2); }
+.color-3 { background: var(--chart-3); }
+.color-4 { background: var(--chart-4); }
+.color-5 { background: var(--chart-5); }
+.color-6 { background: var(--chart-6); }
+
+
+/* ----- donut chart ----- */
+.donut-area {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.donut {                       /* the coloured ring is set by script.js */
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  position: relative;
+  flex: none;
+}
+.donut-big { width: 220px; height: 220px; }
+
+.donut-hole {                  /* white circle in the middle */
+  position: absolute;
+  top: 25%; left: 25%; right: 25%; bottom: 25%;
+  border-radius: 50%;
+  background: var(--box-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.donut-hole b { font-size: 14px; }
+.donut-hole small { color: var(--muted); font-size: 10px; }
+
+.share-list { flex: 1; min-width: 240px; }
+.share-row {
+  display: grid;
+  grid-template-columns: 1fr 44px auto;
+  gap: 8px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.share-row:last-child { border-bottom: 0; }
+.share-name { display: flex; align-items: center; gap: 10px; }
+.share-row b, .share-row em { text-align: right; font-style: normal; }
+.share-row em { color: var(--muted); }
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  flex: none;
+}
+
+
+/* ----- progress bars ----- */
+.bar-track {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--bar-track);
+  margin-top: 8px;
+  overflow: hidden;
+}
+.bar-fill { height: 100%; border-radius: 4px; }
+
+
+/* ----- list of NDRF states on the overview page ----- */
+.ndrf-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.ndrf-row:last-child { border-bottom: 0; }
+.ndrf-row .icon { width: 44px; height: 44px; font-size: 18px; }
+.ndrf-row .grow { flex: 1; }
+.ndrf-line { display: flex; justify-content: space-between; align-items: flex-end; }
+.ndrf-line small { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+
+/* ----- tables ----- */
+.table-wrap { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 480px;
+}
+th {
+  background: var(--table-head-bg);
+  text-align: left;
+  padding: 10px;
+}
+td {
+  padding: 10px;
+  border-bottom: 1px solid var(--line);
+}
+tr:last-child td { border-bottom: 0; }
+td:first-child { color: var(--link); font-weight: bold; }
+td.empty { text-align: center; color: var(--muted); padding: 40px; }
+
+.label {                        /* small coloured pills inside tables */
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+}
+.label-ok   { background: var(--ok-bg);   color: var(--ok-text); }
+.label-sdrf { background: var(--sdrf-bg); color: var(--sdrf-text); }
+.label-ndrf { background: var(--ndrf-bg); color: var(--ndrf-text); }
+
+.table-count { color: var(--muted); font-size: 12px; margin-top: 12px; }
+
+
+/* ----- damage list on overview page ----- */
+.damage-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.damage-row:last-child { border-bottom: 0; }
+.damage-row .icon { width: 40px; height: 40px; font-size: 18px; }
+.damage-row b { font-size: 18px; display: block; }
+.damage-row small { color: var(--muted); }
+
+
+/* ----- Fund Allocation page ----- */
+.flow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.flow small { display: block; color: var(--muted); font-size: 12px; margin-bottom: 4px; }
+.flow b { font-size: 18px; }
+
+.state-card .state-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.state-card .state-name { display: flex; align-items: center; gap: 10px; font-weight: bold; font-size: 16px; }
+.state-card .state-percent { font-size: 26px; font-weight: bold; }
+.state-card .state-amount { color: var(--muted); margin: 4px 0 12px; }
+.state-card .state-share {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 10px;
+}
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.pill {
+  background: var(--table-head-bg);
+  border: 1px solid var(--box-border);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 12px;
+}
+
+
+/* ----- Relief Progress page ----- */
+.recipient-card .recipient-head { display: flex; gap: 14px; align-items: center; }
+.recipient-card .recipient-head .icon { width: 44px; height: 44px; font-size: 18px; }
+.recipient-card .recipient-name { font-weight: bold; font-size: 15px; }
+.recipient-card small { color: var(--muted); font-size: 12px; display: block; margin-top: 2px; }
+.recipient-card .recipient-value { display: flex; align-items: center; gap: 16px; margin: 18px 0; }
+.recipient-card .recipient-value b { font-size: 22px; white-space: nowrap; }
+.recipient-card .recipient-value .bar-track { flex: 1; margin: 0; }
+.recipient-card .meta {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.recipient-card .meta b { font-size: 13px; }
+
+
+/* ----- Transactions page ----- */
+.tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.tools input {
+  padding: 10px 14px;
+  width: 300px;
+  max-width: 100%;
+  border: 1px solid var(--box-border);
+  border-radius: 6px;
+  background: var(--box-bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 13px;
+}
+
+.filter-buttons { display: flex; gap: 8px; }
+.filter-button {
+  background: var(--filter-bg);
+  color: var(--text);
+  border: 1px solid var(--box-border);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-family: var(--font);
+  font-size: 13px;
+  cursor: pointer;
+}
+.filter-button.active {
+  background: var(--filter-active-bg);
+  color: var(--filter-active-text);
+  border-color: var(--filter-active-bg);
+}
+
+
+/* ----- Impact page ----- */
+.year-row {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, 1fr);
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: center;
+}
+.year-row:last-child { border-bottom: 0; }
+.year-row small { display: block; color: var(--muted); font-size: 11px; }
+
+.state-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 1.1fr) 1.4fr 70px;
+  gap: 14px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.state-row:last-child { border-bottom: 0; }
+.state-row small { display: block; color: var(--muted); font-size: 11px; margin-top: 2px; }
+.state-row .bar-track { margin: 0; }
+.state-row > b { text-align: right; }
+
+
+/* ----- footer ----- */
+.footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  font-size: 12px;
+  margin-top: 24px;
+}
+.footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+
+/* ----- small screens ----- */
+@media (max-width: 1000px) {
+  .grid-4 { grid-template-columns: 1fr 1fr; }
+  .grid-3, .grid-2, .grid-wide { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 800px) {
+  #menu-button { display: block; }
+  nav { display: none; width: 100%; flex-direction: column; order: 3; }
+  nav.open { display: flex; }
+  .hero h1 { font-size: 26px; }
+}
+
+@media (max-width: 560px) {
+  .grid-4 { grid-template-columns: 1fr; }
+  .year-row { grid-template-columns: 1fr 1fr; }
+  .state-row { grid-template-columns: 1fr 70px; }
+  .state-row .bar-track { grid-column: 1 / -1; order: 3; }
+  .recipient-card .meta { grid-template-columns: 1fr 1fr; }
+}
+
+
+/* ----- printing (Download Report button) ----- */
+@media print {
+  .topbar, .top-buttons, .button, .tools { display: none; }
+  body { background: #fff; }
+}
+
+
+/* =====================================================================
+   PART 6 - MODERN LOOK + SCROLL ANIMATIONS
+   No new colours: everything below reuses the colours from Part 1.
+   To switch animations off, delete this whole part and the
+   "scroll animations" block at the bottom of script.js.
+   ===================================================================== */
+:root {
+  --shadow-sm: 0 1px 2px rgba(15, 42, 71, 0.06), 0 2px 8px rgba(15, 42, 71, 0.05);
+  --shadow-md: 0 10px 30px -8px rgba(15, 42, 71, 0.18);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-theme="dark"] {
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 12px 32px -8px rgba(0, 0, 0, 0.6);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  animation: page-in 0.6s var(--ease) both;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+::selection { background: var(--nav-active-bg); color: var(--nav-active-text); }
+
+@keyframes page-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* ----- top bar: frosted glass + scroll progress ----- */
+.topbar {
+  background: color-mix(in srgb, var(--topbar-bg) 82%, transparent);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  backdrop-filter: saturate(180%) blur(14px);
+  transition: box-shadow 0.3s ease, background-color 0.4s ease;
+}
+.topbar.scrolled { box-shadow: var(--shadow-md); }
+.topbar-inner { transition: padding 0.3s var(--ease); }
+.topbar.scrolled .topbar-inner { padding-top: 8px; padding-bottom: 8px; }
+
+.logo { letter-spacing: -0.02em; transition: transform 0.3s var(--ease); display: inline-block; }
+.logo:hover { transform: scale(1.04); }
+
+nav a {
+  border-radius: 999px;
+  position: relative;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s var(--ease);
+}
+nav a:hover { transform: translateY(-1px); }
+
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 100%;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--chart-1), var(--chart-2));
+  z-index: 50;
+  pointer-events: none;
+}
+
+/* ----- buttons ----- */
+.button, .small-button, .filter-button {
+  transition: transform 0.25s var(--ease), box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.button { border-radius: 999px; padding: 10px 20px; box-shadow: var(--shadow-sm); }
+.button:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.button:active, .small-button:active, .filter-button:active { transform: scale(0.96); }
+.small-button { border-radius: 50%; box-shadow: var(--shadow-sm); }
+.small-button:hover { transform: translateY(-2px) rotate(12deg); box-shadow: var(--shadow-md); }
+.filter-button:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); border-color: var(--link); }
+
+/* ----- hero ----- */
+.hero { padding: 56px 0 36px; }
+.eyebrow {
+  display: inline-block;
+  background: var(--nav-active-bg);
+  padding: 7px 14px;
+  border-radius: 999px;
+  letter-spacing: 1.2px;
+}
+.hero h1 {
+  font-size: clamp(30px, 4.6vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 18px 0 14px;
+  max-width: 720px;
+}
+.hero p { font-size: 16px; line-height: 1.65; max-width: 560px; }
+.tagline {
+  border-left-width: 4px;
+  border-radius: 2px;
+  padding: 6px 0 6px 22px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.7;
+}
+
+/* ----- boxes ----- */
+.box {
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.3s ease, background-color 0.4s ease;
+}
+.box.in-view:hover, .box:not(.reveal):hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--link);
+}
+.box h2 { letter-spacing: -0.01em; }
+.box-head a { transition: letter-spacing 0.3s var(--ease), opacity 0.2s; }
+.box-head a:hover { letter-spacing: 0.4px; opacity: 0.8; }
+.section-title { letter-spacing: -0.01em; }
+
+.kpi-value { font-size: 22px; white-space: nowrap; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.icon { transition: transform 0.45s var(--ease); }
+
+/* ----- lists + tables ----- */
+.share-row, .ndrf-row, .damage-row, .year-row, .state-row {
+  transition: background-color 0.25s ease, padding 0.3s var(--ease);
+}
+.share-row:hover, .ndrf-row:hover, .damage-row:hover, .year-row:hover, .state-row:hover {
+  background: var(--table-head-bg);
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+}
+th { font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--muted); }
+th:first-child { border-radius: 10px 0 0 10px; }
+th:last-child  { border-radius: 0 10px 10px 0; }
+tbody tr { transition: background-color 0.2s ease; }
+tbody tr:hover { background: var(--table-head-bg); }
+tbody tr.row-in { animation: row-in 0.45s var(--ease) both; animation-delay: var(--d, 0ms); }
+@keyframes row-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.label, .pill { transition: transform 0.25s var(--ease); display: inline-block; }
+.label:hover, .pill:hover { transform: translateY(-2px) scale(1.04); }
+
+.tools input { border-radius: 999px; padding: 11px 18px; transition: box-shadow 0.25s ease, border-color 0.25s ease; }
+.tools input:focus { outline: none; border-color: var(--link); box-shadow: 0 0 0 4px var(--nav-active-bg); }
+
+/* ----- progress bars grow when they scroll into view ----- */
+.bar-track { height: 10px; border-radius: 999px; }
+.bar-fill {
+  border-radius: 999px;
+  transition: width 1.3s var(--ease);
+  transition-delay: var(--bar-delay, 0ms);
+}
+
+/* ----- donut ----- */
+.donut { transition: transform 0.4s var(--ease); }
+.donut:hover { transform: scale(1.04) rotate(4deg); }
+.donut.reveal { opacity: 0; transform: rotate(-120deg) scale(0.6); }
+.donut.reveal.in-view { animation: donut-in 1.3s var(--ease) both; animation-delay: 0.15s; }
+@keyframes donut-in {
+  from { opacity: 0; transform: rotate(-120deg) scale(0.6); }
+  to   { opacity: 1; transform: none; }
+}
+.donut-hole { transition: background-color 0.4s ease; }
+.dot { transition: transform 0.3s var(--ease); }
+.share-row:hover .dot { transform: scale(1.5); }
+
+/* ----- footer ----- */
+.footer { margin-top: 56px; }
+.footer .wrap { padding-top: 22px; padding-bottom: 22px; }
+
+/* ----- back to top ----- */
+#to-top {
+  position: fixed;
+  right: 24px; bottom: 24px;
+  width: 46px; height: 46px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--button-bg);
+  color: var(--button-text);
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.35s var(--ease), background-color 0.25s ease;
+  z-index: 20;
+}
+#to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+#to-top:hover { background: var(--button-hover-bg); transform: translateY(-3px); }
+
+/* ----- scroll reveal (class added by script.js, so no-JS still shows everything) ----- */
+.reveal { opacity: 0; transform: translateY(36px); }
+.reveal.in-view {
+  opacity: 1;
+  transform: none;
+  animation: reveal-up 0.85s var(--ease) backwards;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(36px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
+.reveal-left.reveal  { transform: translateX(-40px); }
+.reveal-left.reveal.in-view { animation-name: reveal-left; transform: none; }
+@keyframes reveal-left {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ----- accessibility + print ----- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal, .donut.reveal { opacity: 1 !important; transform: none !important; }
+}
+@media print {
+  .reveal, .donut.reveal { opacity: 1 !important; transform: none !important; animation: none !important; }
+  #scroll-progress, #to-top { display: none; }
+  .box { box-shadow: none; }
+}
+@media (max-width: 800px) {
+  .hero { padding-top: 32px; }
+  #to-top { right: 16px; bottom: 16px; }
+}
+
+/* fix: stop wide tables from pushing the page sideways on phones */
+.grid > * { min-width: 0; }
+@media (max-width: 1000px) and (min-width: 561px) { .kpi-value { font-size: 24px; } }
+
+
+.small-button { display: inline-flex; align-items: center; justify-content: center; padding: 0; }
+#menu-button { display: none; }
+@media (max-width: 800px) { #menu-button { display: inline-flex; } }
+.theme-icon { display: block; }

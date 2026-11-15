@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transactions - ReliefTrack</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="tx">
+
+<!-- ========== TOP BAR ========== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="logo" href="index.html">Relief<span>Track</span></a>
+    <nav id="nav">
+      <a href="index.html">Overview</a>
+      <a href="allocation.html">Fund Allocation</a>
+      <a href="progress.html">Relief Progress</a>
+      <a href="transactions.html" class="active">Transactions</a>
+      <a href="impact.html">Impact</a>
+    </nav>
+    <div class="top-buttons">
+      <button class="small-button" id="theme-button" type="button" title="Dark / light mode" aria-label="Dark / light mode"><svg class="theme-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      <button class="button" type="button" onclick="window.print()">Download Report</button>
+      <button class="small-button" id="menu-button" type="button" title="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- ========== PAGE HEADING ========== -->
+  <section class="hero">
+    <div>
+      <div class="eyebrow"><a href="index.html">DASHBOARD</a> / TRANSACTIONS</div>
+      <h1>State-wise fund releases.</h1>
+      <p>Search and filter central SDRF releases and NDRF releases to each state for 2023-24 to 2025-26.</p>
+    </div>
+    <a class="button" href="index.html">← Back to Dashboard</a>
+  </section>
+
+  <!-- ========== FOUR NUMBER BOXES ========== -->
+  <div class="grid grid-4">
+    <div class="box kpi" id="tx-kpi-1">
+      <div>
+        <div class="kpi-label">Centre’s SDRF released (3 yrs)</div>
+        <div class="kpi-value" id="v-1"></div>
+        <div class="kpi-note">2023-24 to 2025-26</div>
+      </div>
+    </div>
+    <div class="box kpi" id="tx-kpi-2">
+      <div>
+        <div class="kpi-label">NDRF released (3 yrs)</div>
+        <div class="kpi-value" id="v-2"></div>
+        <div class="kpi-note">2023-24 to 2025-26</div>
+      </div>
+    </div>
+    <div class="box kpi" id="tx-kpi-3">
+      <div>
+        <div class="kpi-label">Release records</div>
+        <div class="kpi-value" id="v-3"></div>
+        <div class="kpi-note">state-wise, by fund and year</div>
+      </div>
+    </div>
+    <div class="box kpi" id="tx-kpi-4">
+      <div>
+        <div class="kpi-label">States covered</div>
+        <div class="kpi-value" id="v-4"></div>
+        <div class="kpi-note">as listed in the annexure</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SEARCH + TABLE ========== -->
+  <div class="box" id="tx-table">
+    <div class="tools">
+      <input id="search" type="search" placeholder="Search by state, year or fund" autocomplete="off">
+      <div class="filter-buttons">
+        <button class="filter-button active" data-fund="all" type="button">All</button>
+        <button class="filter-button" data-fund="SDRF" type="button">SDRF</button>
+        <button class="filter-button" data-fund="NDRF" type="button">NDRF</button>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>State</th><th>Year</th><th>Description</th><th>Fund</th><th>Amount</th><th>Source</th></tr></thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+    <div class="table-count" id="table-count"></div>
+  </div>
+
+  <p class="note source-note">Source: Ministry of Home Affairs, Statement of state-wise SDRF/NDRF allocation and releases and damage reports (Annexures I and II, PIB, 2026). Figures in ₹ crore; 2025-26 damages are provisional. State rows add up to ₹23,983.20 Cr (Centre’s SDRF release) and ₹5,809.33 Cr (NDRF) for 2025-26; the annexure’s printed totals are ₹24,193.20 Cr and ₹5,909.26 Cr, so a small part is not itemised by state.</p>
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="wrap">
+    <span><b>ReliefTrack</b> | India disaster fund dashboard built on public MHA SDRF/NDRF data</span>
+    <span>Source: Ministry of Home Affairs · PIB</span>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

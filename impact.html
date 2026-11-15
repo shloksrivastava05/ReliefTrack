@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impact - ReliefTrack</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="impact">
+
+<!-- ========== TOP BAR ========== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="logo" href="index.html">Relief<span>Track</span></a>
+    <nav id="nav">
+      <a href="index.html">Overview</a>
+      <a href="allocation.html">Fund Allocation</a>
+      <a href="progress.html">Relief Progress</a>
+      <a href="transactions.html">Transactions</a>
+      <a href="impact.html" class="active">Impact</a>
+    </nav>
+    <div class="top-buttons">
+      <button class="small-button" id="theme-button" type="button" title="Dark / light mode" aria-label="Dark / light mode"><svg class="theme-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      <button class="button" type="button" onclick="window.print()">Download Report</button>
+      <button class="small-button" id="menu-button" type="button" title="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- ========== PAGE HEADING ========== -->
+  <section class="hero">
+    <div>
+      <div class="eyebrow"><a href="index.html">DASHBOARD</a> / DISASTER DAMAGE</div>
+      <h1>Reported disaster damage, state by state.</h1>
+      <p>Damage reported by states and UTs from hydro-meteorological disasters in 2025-26 (provisional), with the last three years compared.</p>
+    </div>
+    <a class="button" href="index.html">← Back to Dashboard</a>
+  </section>
+
+  <!-- ========== FOUR NUMBER BOXES ========== -->
+  <div class="grid grid-4">
+    <div class="box kpi" id="impact-kpi-1">
+      <div>
+        <div class="kpi-label">States / UTs Reporting</div>
+        <div class="kpi-value" id="v-1"></div>
+        <div class="kpi-note">2025-26 provisional</div>
+      </div>
+    </div>
+    <div class="box kpi" id="impact-kpi-2">
+      <div>
+        <div class="kpi-label">Lives Lost</div>
+        <div class="kpi-value" id="v-2"></div>
+        <div class="kpi-note">2025-26 provisional</div>
+      </div>
+    </div>
+    <div class="box kpi" id="impact-kpi-3">
+      <div>
+        <div class="kpi-label">Houses/Huts Damaged</div>
+        <div class="kpi-value" id="v-3"></div>
+        <div class="kpi-note">2025-26 provisional</div>
+      </div>
+    </div>
+    <div class="box kpi" id="impact-kpi-4">
+      <div>
+        <div class="kpi-label">Cattle Lost</div>
+        <div class="kpi-value" id="v-4"></div>
+        <div class="kpi-note">2025-26 provisional</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== TWO LISTS ========== -->
+  <div class="grid grid-2">
+    <div class="box" id="impact-years">
+      <h2>National damage by year</h2>
+      <div id="year-list"></div>
+    </div>
+    <div class="box" id="impact-top">
+      <h2>Houses/huts damaged 2025-26 (top 12 states)</h2>
+      <div id="house-list"></div>
+    </div>
+  </div>
+
+  <p class="note source-note">Source: Ministry of Home Affairs, Statement of state-wise SDRF/NDRF allocation and releases and damage reports (Annexures I and II, PIB, 2026). Figures in ₹ crore; 2025-26 damages are provisional. State rows add up to ₹23,983.20 Cr (Centre’s SDRF release) and ₹5,809.33 Cr (NDRF) for 2025-26; the annexure’s printed totals are ₹24,193.20 Cr and ₹5,909.26 Cr, so a small part is not itemised by state.</p>
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="wrap">
+    <span><b>ReliefTrack</b> | India disaster fund dashboard built on public MHA SDRF/NDRF data</span>
+    <span>Source: Ministry of Home Affairs · PIB</span>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
